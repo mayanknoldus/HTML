@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			W3School
+		</title>
+	</head>
+
+	<body > 
+  <table border="2" margin=20px>
+  <tr>
+    <td>
+	<p>
+	<img align=left src="https://upload.wikimedia.org/wikipedia/commons/3/3e/W3Schools_logo.png" alt="w3schools logo" width=225px height=45px /> <br>&nbsp;&nbsp;THE WORLD'S LARGEST WEB DEVELOPER SITE 
+  <hr>
+	</p>
+
+	<br>
+	<nav align=left> &nbsp;&nbsp;
+	<a href="https://www.w3schools.com/html/default.asp">HTML</a> &nbsp; &nbsp;| &nbsp;&nbsp;
+	<a href="https://www.w3schools.com/css/default.asp">CSS</a> &nbsp; &nbsp;| &nbsp;&nbsp;
+	<a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a> &nbsp;&nbsp; | &nbsp;&nbsp;
+	<a href="https://www.w3schools.com/python/default.asp">PYTHON</a>
+	</nav><br>
+  <hr>
+	<h1>HTML Intoduction</h1>
+	<p> HTML is the standard markup language for creating Web Pages. </p>
+	<ol>
+	  <li><a href="#1">What is HTML?</a></li> 
+  	  <li><a href="#2">What is an HTML element?</a></li> 
+  	  <li><a href="#3">Web Browers</a></li>
+	</ol>
+
+	<h3 id="1">1. What is HTML?</h3>
+	<ul>
+	  <li>HTML stands for Hyper Text Markup Language.</li>
+  	  <li>HTML is the standard markup language for creating Web Pages.</li>
+  	  <li>HTML describes the structure of a Web Page.</li>
+  	  <li>HTML consists of a series of elements.</li>
+  	  <li>HTML elements tell the browers how to display the content.</li>
+  	  <li>HTML elements label pieces of content such as "This is a Heading", "This is a paragraph", "This is a link", etc.</li>
+  	</ul>
+
+
+	 <p> <h3 id="2">2. What is an HTML element?</h3>
+  	 An HTML element is defined by a start tag, some comment, and an end tag:</p>
+  	 <font color=blue> &lt;</font> <font color=red>tagname</font> <font color=blue>&gt;</font> Content goes here... <font color=blue> &lt;</font> <font color=red>/tagname</font> <font color=blue>&gt;</font> 
+
+  	 <p><font size="2">The element is everything from the start tag to the end tag:</font> </p>
+  	 <font color=blue> &lt;</font> <font color=red>h1</font> <font color=blue>&gt;</font> My First Heading<font color=blue> &lt;</font> <font color=red>/h1</font> <font color=blue>&gt;</font><br>
+
+  	 <font color=blue> &lt;</font> <font color=red>p</font> <font color=blue>&gt;</font> My First Paragraph<font color=blue> &lt;</font> <font color=red>/p</font> <font color=blue>&gt;</font>
+  	 <br> <br> <br>
+  	 
+
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Start Tag</th>
+    <th>Element Content</th>
+    <th>End Tag</th>
+  </tr>
+  <tr>
+    <td>&lt;h1&gt;</td>
+    <td>My First Heading</td>
+    <td>&lt;/h2&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;p&gt;</td>
+    <td>My First Paragraph</td>
+    <td>&lt;/p&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;br&gt;</td>
+    <td>None</td>
+    <td>None</td>
+  </tr>
+</table>
+<br>
+<br>
+
+<h3 id="3">3. Web Browsers</h3>
+<p>The purpose of a web browser(Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly. <br>
+	A browser does not display the HTML tags, but uses them to determine how to display the document: </p>
+
+<center> <img src="https://www.w3schools.com/html/img_chrome.png" alt="Demo Image" width=40% height=40% /> </center>
+
+
+<hr>
+<h3>Submit a review</h3>
+
+<form action="/handling_page" method="get">
+  <label for="Name"> Name:</label>
+  <input type="text" id="Name:" name="Name" value="John"> <br><br>
+
+  <label for="Gender"> Gender:</label>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label>
+  <input type="radio" id="other" name="gender" value="other">
+  <label for="other">Other</label><br><br>
+
+  <label for="feedback">Rate it:</label>
+  <select name="Rating" id="Rate it:">
+  <option value="Very Good">Very Good</option>
+  <option value="Good">Good</option>
+  <option value="Average">Average</option>
+  <option value="Poor">Poor</option>
+  <option value="Very Poor">Very Poor</option> <br>
+</select> <br> <br>
+
+  <textarea rows="5" cols="40"> Please add your reviews here. </textarea> <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+</td>
+</tr>
+</table>
+</body>
+</html>
