@@ -15,13 +15,6 @@ dockerBaseImage := "openjdk"
 dockerExposedPorts := Seq(port)
 // version := "1.0"
 
-import com.typesafe.sbt.packager.docker._
-
-dockerCommands ++= Seq(
-  Cmd("USER", "root"),
-  ExecCmd("RUN", "mkdir", "/opt/docker/logs")  
-)
-
 resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += "Atlassian Releases" at "https://maven.atlassian.com/public/"
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
