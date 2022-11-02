@@ -1,0 +1,46 @@
+
+name: Build and Deploy Exhibitor Service on Stage
+on:
+  push:
+    branches:
+      - github/workflow
+
+jobs:
+  build:
+    name: push image to registry
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Setup JDK 11
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Cache SBT
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.ivy2/cache
+            ~/.sbt
+          key: ${{ runner.os }}-sbt-${{ hashFiles('**/build.sbt') }}
+      
+      - name: HAsh id
+        id: git_hash=$(git rev-parse --short "$GITHUB_SHA")
+
+      # Build the Docker image
+      - name: Package and Build Backend
+        run: |
+          echo "Building image..."
+          sbt docker:publishLocal
+      # Tag, and push image to Amazon ECR
+      - name: Build, tag
+        env:
+          # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: billing-service
+          IMAGE_TAG: ${{ steps.git_hash }}
+        run: |
+          echo "Pushing image to ECR..."
+          docker tag billing-service:1.0 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
