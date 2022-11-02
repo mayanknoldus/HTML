@@ -43,7 +43,7 @@ jobs:
         env:
           # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: billing-service
-          IMAGE_TAG: ${{ github.head_ref }}.${{ github.sha }}
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           echo "Pushing image to ECR..."
           echo $ECR_REPOSITORY
