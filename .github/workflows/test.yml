@@ -45,4 +45,6 @@ jobs:
           IMAGE_TAG: ${{ steps.git_hash.output }}
         run: |
           echo "Pushing image to ECR..."
-          docker tag billing-service:1.0 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo $ECR_REPOSITORY
+          echo $IMAGE_TAG
+          docker tag billing-service:1.0 $ECR_REPOSITORY:$IMAGE_TAG
