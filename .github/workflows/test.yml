@@ -29,9 +29,10 @@ jobs:
       
       - name: HAsh id
         id: hash
-        run: | # echo ${{ github.head_ref }}.${{ github.sha }}
+        #run: | # echo ${{ github.head_ref }}.${{ github.sha }}
+        run: echo "git_hash=$(git rev-parse --short "$GITHUB_SHA")"
           
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+    #      git_hash=$(git rev-parse --short "$GITHUB_SHA")
     #      ${{ github.head_ref }}.${{ github.sha }}
          #=$(git rev-parse --short "$GITHUB_SHA")
 
@@ -52,7 +53,7 @@ jobs:
         env:
           # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: billing-service
-          IMAGE_TAG: ${{ steps.hash.outputs.git_hash }}  #${{ steps.vars.outputs.sha_short }} #${{ github.sha }}
+          IMAGE_TAG: ${{ steps.hash.git_hash }}  #${{ steps.vars.outputs.sha_short }} #${{ github.sha }}
         run: |
           echo "Pushing image to ECR..."
           echo $ECR_REPOSITORY
