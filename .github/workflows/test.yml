@@ -63,7 +63,7 @@ jobs:
 
 
   deploy-exhibitor-service-on-eks:
-    needs: build-exhibitor-service-on-staging
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
