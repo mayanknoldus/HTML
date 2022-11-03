@@ -61,6 +61,9 @@ jobs:
           echo $IMAGE_TAG
           docker tag billing:1.0 $ECR_REPOSITORY:$IMAGE_TAG
 
+    outputs:
+      output: ${{ steps.hash-id.outputs.git_hash }}
+
 
   deploy-exhibitor-service-on-eks:
     needs: build
@@ -74,6 +77,7 @@ jobs:
         env:
           # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: billing-service
-          IMAGE_TAG: ${{ jobs.build.steps.hash-id.outputs.git_hash }}
+          IMAGE_TAG: ${{needs.build.outputs.output}}
+    #      ${{ jobs.build.steps.hash-id.outputs.git_hash }}
 
         run: echo $IMAGE_TAG
